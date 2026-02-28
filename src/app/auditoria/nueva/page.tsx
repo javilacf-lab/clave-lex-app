@@ -47,7 +47,7 @@ export default function NuevaAuditoria() {
             formData.append('email', email);
 
             // 2. POST to n8n Webhook
-            const webhookResponse = await fetch('https://javila20.app.n8n.cloud/webhook-test/Fisco-IA-V2', {
+            const webhookResponse = await fetch('https://javila20.app.n8n.cloud/webhook/Fisco-IA-V2', {
                 method: 'POST',
                 body: formData
             });
@@ -200,3 +200,4 @@ export default function NuevaAuditoria() {
         </div>
     );
 }
+
