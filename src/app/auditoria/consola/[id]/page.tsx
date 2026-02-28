@@ -105,7 +105,7 @@ export default function ConsolaValidacion() {
             };
 
             // 2. Send to Webhook
-            const webhookRes = await fetch('https://javila20.app.n8n.cloud/webhook-test/confirmar-auditoria', {
+            const webhookRes = await fetch('https://javila20.app.n8n.cloud/webhook/confirmar-auditoria', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -305,3 +305,4 @@ export default function ConsolaValidacion() {
         </div>
     );
 }
+
