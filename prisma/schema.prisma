@@ -1,0 +1,49 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Cliente {
+  id               String      @id @default(uuid())
+  nombreEmpresa    String
+  email            String      @unique
+  totalAuditorias  Int         @default(0)
+  auditorias       Auditoria[]
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+}
+
+model Auditoria {
+  id               String      @id @default(uuid())
+  clienteId        String
+  cliente          Cliente     @relation(fields: [clienteId], references: [id])
+  fechaCreacion    DateTime    @default(now())
+  estado           String      @default("Procesando IA") // "Procesando IA", "Pendiente Validación", "Completada"
+  scoreRiesgo      String      // "Alto", "Medio", "Bajo"
+  periodo          String?
+  resumenEjecutivo String?
+  hallazgos        Hallazgo[]
+  updatedAt        DateTime    @updatedAt
+}
+
+model Hallazgo {
+  id                  String      @id @default(uuid())
+  auditoriaId         String
+  auditoria           Auditoria   @relation(fields: [auditoriaId], references: [id])
+  concepto            String
+  valorDeclarado      String
+  valorContabilidad   String
+  diferencia          String
+  estadoIa            String      // "Coincide", "Diferencia"
+  estadoAuditor       String      @default("Pendiente") // "Pendiente", "Aceptado", "Rechazado", "Inmaterial"
+  comentarioAuditor   String?     // Optional text
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+}
