@@ -35,9 +35,13 @@ export default function RootLayout({
               <a href="/auditoria/nueva" className="flex items-center px-4 py-3 text-[#374151] rounded-lg hover:bg-[#f0fdf4] hover:text-[var(--green-700)] transition-colors font-medium">
                 Nueva Auditoría
               </a>
+              <a href="/financiero" className="flex items-center px-4 py-3 text-[#374151] rounded-lg hover:bg-[#f0fdf4] hover:text-[var(--green-700)] transition-colors font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3 text-gray-400"><path d="M3 3v18h18" /><path d="M18 17V9" /><path d="M13 17V5" /><path d="M8 17v-3" /></svg>
+                Dashboard Financiero
+              </a>
             </nav>
           </aside>
-          
+
           {/* Main Content Area */}
           <main className="flex-1 flex flex-col h-screen overflow-hidden">
             <header className="h-16 bg-white border-b border-[#e4e7ed] flex items-center justify-between px-8">
