@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { RefreshCw } from "lucide-react";
 import "./globals.css";
 
 const inter = Inter({
@@ -38,6 +39,10 @@ export default function RootLayout({
               <a href="/financiero" className="flex items-center px-4 py-3 text-[#374151] rounded-lg hover:bg-[#f0fdf4] hover:text-[var(--green-700)] transition-colors font-medium">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-3 text-gray-400"><path d="M3 3v18h18" /><path d="M18 17V9" /><path d="M13 17V5" /><path d="M8 17v-3" /></svg>
                 Dashboard Financiero
+              </a>
+              <a href="/sincro" className="flex items-center px-4 py-3 text-[#374151] rounded-lg hover:bg-[#f0fdf4] hover:text-[var(--green-700)] transition-colors font-medium">
+                <RefreshCw className="mr-3 text-gray-400 w-5 h-5" />
+                Sincro DIAN
               </a>
             </nav>
           </aside>
